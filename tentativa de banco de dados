@@ -1,0 +1,36 @@
+import sqlite3
+# conectando banco de dados
+conn = sqlite3.connect("bd_senai")
+cursor = conn.cursor()
+
+#criando a tabela com campo id
+cursor.execute("""
+   Create table if not exists alunos(
+       id integer primary key autoincrement,
+       nome text not null,
+       nota integer
+    )
+"""
+)
+#adicionando novo aluno
+print("--- Novo Aluno ---")
+nome_novo_aluno = str(input(" Digite o nome do novo aluno: "))
+
+while True:
+      try:
+          nota_novo_aluno = int(input(" Digite a nota do novo aluno(numero inteiro): "))
+          break
+      except ValueError:
+          print(" Entrada invalida! Por favor digite um numero inteiro para nota.")
+cursor.execute("INSERT INTO alunos (nome, nota) VALUES(?,?)",(nome_novo_aluno,nota_novo_aluno))
+
+conn.commit()
+print(f" Aluno{nome_novo_aluno} com a nota {nota_novo_aluno} Adicionada com sucesso ao banco de dados!")
+
+print("=== Dados da Tabelas (sem ordenação) === ")
+cursor.execute("SELECT * From alunos")
+alunos = cursor.fetchall()
+
+for aluno in alunos:
+    print(aluno)
+print("\n"+"="*50)
