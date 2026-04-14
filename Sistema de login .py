@@ -1,28 +1,28 @@
 print("="*20 + "🔒 Sistema de Cadastro Da Augostinhos moveis.corp " + "="*20)
-email_validos = "@gmail.com" or "@hotmail.com"
+def Validacao_Email(email_certo):
+ while True:
+     if email_certo.endswith(("@hotmail.com","@gmail.com","@hotmail.com","@yahoo.com","@outlook.com")):
+          return email_certo
+     else:
+        email_certo = str(input(" Insira um email valido, Tente novamente!: "))
+def Validacao_senha(senha_certo):
+ while True:
+     if len(senha_certo) >= 1 and len(senha_certo) <= 6:
+       return senha_certo
+     else:
+        senha_certo = str(input(" Escolha seu nome de usuário: "))
 
-def Validação_Email(email_validos):
-  while True:
-   email_certo = str(input(" Insira uma email de sua preferencia: "))
-   if email_certo not in email_validos:
-    print(" Email invalido! ")
-    email_certo = str(input(" Insira uma email de sua preferencia: "))
-   break
-  return email_validos
+email_certo = str(input(" Insira uma email de sua preferencia: "))
+Validacao_Email(email_certo)
 
-def Validação_Usuario(email_validos):
-  while True:
-   email_certo = str(input(" Insira uma email de sua preferencia: "))
-   if email_certo not in email_validos:
-    print(" Email invalido! ")
-    email_certo = str(input(" Insira uma email de sua preferencia: "))
-   break
 nome_certo = str(input(" Escolha seu nome de usuário: "))
+
 senha_certo = str(input(" Escolha sua senha: "))
-cont = 3
+Validacao_senha(senha_certo)
+
 
 print("="*20 + "🔒 Login Da Augostinhos moveis.corp " + "="*20)
-
+cont = 3
 for tentativa in range(1,4):
  email_usuario = str(input(f" Digite seu email (tentativas {cont}): "))
  nome_usuario = str(input(f" Digite seu nome (tentativas {cont}): "))
