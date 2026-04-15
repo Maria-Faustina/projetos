@@ -1,0 +1,29 @@
+from os import remove
+
+
+def Adicionar_Tarefas(tarefas):
+ while True:
+    opcao = input(" Deseja adicionar mais tarefas [sim/não]?")
+    if opcao == 'sim':
+      item = str(input(" Adicione sua tarefa: "))
+      tarefas.append(item)
+      tarefas = []
+    elif opcao == 'nao':
+        return tarefas
+def Remover_tarefas(tarefas):
+ while True:
+    for i, j in enumerate(tarefas):
+      print(" Sua lista \n")
+      print(f"  {i}°: {j}")
+    opcao = input(" Deseja remover a tarefas [sim/não]?")
+    if opcao == 'sim':
+       indice = int(input(" Insira o numero da tarefa"))
+       tarefas.pop(indice)
+    elif opcao == 'nao':
+            return tarefas
+lista = str(input(" Digite a sua tarefa: "))
+tarefas = [lista]
+Adicionar_Tarefas(tarefas)
+Remover_tarefas(tarefas)
+tarefas.append(lista)
+print(f" Suas tarefas do dia são {len(tarefas)}")
