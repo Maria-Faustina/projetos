@@ -1,0 +1,31 @@
+import tkinter as tk
+from tkinter import ttk
+class init(tk.Tk):
+ def main(self):
+    self.root = tk.Tk()
+    self.root.title(" Não diga o nome do monstro")
+    self.root.configure(background='#1E90FF')
+    self.root.geometry("400x200")
+    self.root.resizable(True, True)
+ def butaos(self):
+    self.label = ttk.Label(self.root, text="jogo do the tiger", font=("TkDefaultFront", 16))
+    self.label.pack(expand=True)
+    self.btn2 = ttk.Button(self.root, text= "Jogar na oncinha", command=lambda)
+    self.btn2.pack(anchor="center")
+    self.btn = ttk.Button(self.root, text="fechar", command=self.root.destroy)
+    self.btn.pack(anchor="se", padx=15)
+    
+class Paginas(tk.Frame ):
+  def mostrar_pagina(self):
+    p.lift()
+    self.pagina = pagina
+    label = ttk.Label(self.root, text=" Jogo da oncinha")
+    label.pack(side="top", font=(" TkDefaultFront",16))
+    app = tk.Tk()
+    app.geometry("400x200")
+    px = tk.Frame(app)
+    for p in (p1):
+      p.grid(row=0, column=0, sticky="nsew")
+if __name__ == "__main__":
+  app = Paginas()
+  app.mainloop()
