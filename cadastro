@@ -1,0 +1,9 @@
+from tkinter import tk
+
+p1 = tk.Tk()
+
+def tela():
+ p1.title(" Cadastro do Tigri")
+ p1.geometry("150x200")
+
+p1.mainloop()
