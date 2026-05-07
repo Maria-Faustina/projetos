@@ -1,9 +1,22 @@
-from tkinter import tk
+from tkinter import *
+import tkinter as ttk
 
-p1 = tk.Tk()
+janela = ttk.Tk()
 
 def tela():
- p1.title(" Cadastro do Tigri")
- p1.geometry("150x200")
 
-p1.mainloop()
+    janela.title(" Cadastro do Tigri")
+    janela.geometry("500x400")
+    janela.config(background=("#edbaa6"))                                             
+
+def botao():
+   Button.ttk(janela, text="Cadastro")
+   Button.grid(janela, row= 0, column= 0  )
+
+
+tela()
+botao()
+if __name__ == "__main__":
+    janela.mainloop()
+
+
