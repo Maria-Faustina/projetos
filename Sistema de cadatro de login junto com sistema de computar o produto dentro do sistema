@@ -1,0 +1,77 @@
+preco_produto = {}
+carrinho = []
+
+def login_cadastro_user():
+    print("="*30 + " Mercado Preso " + 30*"=")
+    print("\n ----- cadastro -----")
+    def email_validation():
+        v = True
+        while v:
+            email = input("Digite um email para o cadastro: ")
+            if email.endswith(('@gmail.com', '@yahoo.com.br', 'hootmail.com')):
+                print("Email cadastrado")
+                return email
+            else:
+                print("Digite um email valido!")
+                continue
+        return False
+    email_salvo = email_validation()
+
+    def senha_validation():
+            x = True
+            while x:
+                senha = input("Crie um senha: ")
+                confisenha = input("Confirme sua senha: ")
+                if senha != confisenha:
+                    print("As senhas não são iguais")
+                    x = True
+                elif len(senha) < 6 or len(confisenha) < 6:
+                    print("Senha deve conter no minimo 6 characteres")
+                    continue
+                else:
+                    print("Senha criada com sucesso!")
+                    return senha
+            return False
+    senha_salva = senha_validation()
+    def login_user_empresa(senha_correta):
+        print("\n ----- Login -----")
+        #login empresa
+        admuser = 'maria'
+        senhaadm = '123'
+        #login usuario
+        i = True
+        while i:
+            senha_l = input("Digite a sua senha para login: ")
+            if senha_correta == senha_l:
+                print("Senha correta")
+                return senha_salva
+            else:
+                print("senha incorreta!")
+                continue
+        return False
+    login_user_empresa(senha_salva)
+
+login_cadastro_user()
+
+def estoque_produto():
+    print("teste")
+
+def adicionar_produto():
+    while True:
+        produto = input("Digite o produto que deseja adicionar no carrinho: ")
+        if produto in preco_produto:
+            carrinho.append(preco_produto)
+            print(f"o {produto} foi adicionado no carrinho")
+        else:
+            print(f"O {produto} está indisponivel")
+        opcao = input("Deseja adicionar outro produto(s/n) ")
+
+        if opcao == 'n' or opcao == 'nao':
+            return False
+
+def calcular_preco():
+    for item in enumerate(carrinho):
+        print(item)
+calcular_preco()
+adicionar_produto()
+
