@@ -1,74 +1,89 @@
 preco_produto = {}
 carrinho = []
-
-def login_cadastro_user():
-    print("="*30 + " Mercado Preso " + 30*"=")
-    print("\n ----- cadastro -----")
-    def email_validation():
-        t = True
-        while t:
-            email = input("Digite um email para o cadastro: ")
-            if email.endswith(('@gmail.com', '@yahoo.com.br', 'hootmail.com')):
-                print("Email cadastrado")
-                return email
-            else:
-                print("Digite um email valido!")
-                continue
-        return False
-    email_salvo = email_validation()
-
-    def senha_validation():
-            t = True
-            while t:
-                senha = input("Crie um senha: ")
-                confisenha = input("Confirme sua senha: ")
-                if senha != confisenha:
-                    print("As senhas não são iguais")
-                    t = True
-                elif len(senha) < 6 or len(confisenha) < 6:
-                    print("Senha deve conter no minimo 6 characteres")
-                    continue
-                else:
-                    print("Senha criada com sucesso!")
-                    return senha
+def login_cadastro_user( ):
+    def cadast(senha_salva,email_salvo):
+        print("\n ----- cadastro -----")
+        def email_validation():
+           
+            while True:
+                    email = input("Digite um email para o cadastro: ")
+                    if email.endswith(('@gmail.com', '@yahoo.com.br', 'hootmail.com')):
+                        print("Email cadastrado")
+                        return email
+                    else:
+                        print("Digite um email valido!")
+                        continue
             return False
-    senha_salva = senha_validation()
-    
-    def login_user_empresa(senha_correta, email_correto):
+        email_salvo = email_validation()
+
+        def senha_validation():
+                t = True
+                while t:
+                    senha = input("Crie um senha: ")
+                    confisenha = input("Confirme sua senha: ")
+                    if senha != confisenha:
+                        print("As senhas não são iguais")
+                        t = True
+                    elif len(senha) < 6 or len(confisenha) < 6:
+                        print("Senha deve conter no minimo 6 characteres")
+                        continue
+                    else:
+                        print("Senha criada com sucesso!")
+                        return senha
+                return False
+        senha_salva = senha_validation()
+        cadast(senha_salva, email_salvo)
+def login_user(senha_correta, email_correto):
+    def login_user_empresa():
         print("\n ----- Login -----")
         #login empresa
         admuser = 'maria'
         senhaadm = '123'
+        while True:
+                    login = input("Cliente[1] ou Empresa[2]")
+                    if login == '1':
+                        return False
+                    elif login =='2':
+                        admuser = email_correto
+                        senhaadm = senha_correta
+
+        login_user(senha_correta, email_correto)
         #login usuario
-        t =True
-        def email_correta():
-            while t:
-                email_l = input("Digite seu a email para o login: ")
-                if email_correto == email_l:
-                    print("Email correto")
-                    return email_salvo
-                else:
-                    print("Email incorreto")
-                    continue
-        email_correta()
-        def senha_correto():
-            while t:
-                senha_l = input("Digite a sua senha para login: ")
-                if senha_correta == senha_l:
+
+    def email_correta(email_salvo):
+                while True:
+                    email_l = input("Digite seu a email para o login: ")
+                    if email_correto == email_l:
+                        print("Email correto")
+                        return email_salvo
+                    else:
+                        print("Email incorreto")
+                        continue
+                return False
+    email_correta(email_correto)
+    def senha_correto(senha_salva):
+         while True :
+            senha_l = input("Digite a sua senha para login: ")
+            if senha_correta == senha_l:
                     print("Senha correta")
                     return senha_salva
-                else:
-                    print("senha incorreta!")
-                    continue
-        senha_correto()
-        
-    login_user_empresa(senha_salva,email_salvo)
+            else:
+                print("senha incorreta!")
+                continue
+         return False
+    senha_correto(senha_correta)
+    login_user_empresa()
 
-login_cadastro_user()
 
-def estoque_produto():
-    print("teste")
+print("=" * 30 + " Mercado Preso " + 30 * "=")
+print("Login [1] Cadastro [2] Carrinho [3] Pagar [4] Sair [5]")
+o = input("| : ")
+if o == '1':
+    login_user()
+elif o == '2':
 
+    def estoque_produto():
+        print("teste")
 def adicionar_produto():
     while True:
         produto = input("Digite o produto que deseja adicionar no carrinho: ")
