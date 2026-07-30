@@ -1,0 +1,64 @@
+import tkinter as tk
+import random
+
+root = tk()
+simbolos = ["😒","🤑","😱","🐺","🫦","✨"]
+saldo = 20.0
+custo_giro = 2
+
+def girar():
+    global saldo
+    if saldo < custo_giro:
+        resultado_label.config(text="Saldo insulficiente",fg="red")
+        return
+
+saldo -= custo_giro
+
+resultado_label = [random.choice(simbolos) for _ in range(3)]
+
+simbolos.config(text=resultado_label[0])
+simbolos.config(text=resultado_label[1])
+simbolos.config(text=resultado_label[3])
+
+print(" I".join(resultado_label))
+
+if resultado_label[0] == resultado_label[1] == resultado_label[2]:
+    premio = saldo*3
+    saldo += premio
+    print(" Jackpot!!! Vc ganhou, tente novamente para ganhar mais")
+else:
+    print(" Não Foi dessa vez, mas talvez na proxima vc ganhe!")
+
+print(f" Saldo atual{saldo}")
+
+
+
+janela = tk.Tk()
+janela.title(" Jogo da Oncinha")
+janela.geometry("250x300")
+janela.resizable(True,True)
+
+titulo = tk.Label(janela, text=(" É o tigrrrrruuu8uu"))
+titulo.pack(pady=10)
+
+frame_slots = tk.Frame(janela)
+frame_slots.pack(pady=10)
+
+simbolos = tk.Label(frame_slots, text="⁉️",font=("Arial",30))
+simbolos.pack(side="left", padx=10)
+
+simbolos = tk.Label(frame_slots, text="⁉️",font=("Arial",30))
+simbolos.pack(side="left", padx=10)
+
+simbolos = tk.Label(frame_slots, text="⁉️",font=("Arial",30))
+simbolos.pack(side="left", padx=10)
+
+resultado_label
+saldo_Label = tk.Label(janela, text=f"Saldo: R$ {saldo:.2f}")
+
+botao = tk.Button(janela, text=("Arial", 12), command=girar)
+botao.pack
+
+if __name__=="__main__":
+    root.mainloop()
+ 
